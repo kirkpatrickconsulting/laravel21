@@ -16,7 +16,7 @@ class TestController extends Controller {
      * TestController constructor.
      */
     public function __construct() {
-        $this->middleware('auth');
+        $this->middleware(['auth:web', 'verified']);
     }
 
     public function index(Request $request) {

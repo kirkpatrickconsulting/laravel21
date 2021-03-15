@@ -14,7 +14,7 @@ class FootballController extends Controller {
      * FootballController constructor.
      */
     public function __construct($id = NULL) {
-        $this->middleware('auth');
+        $this->middleware(['auth:web', 'verified']);
         $this->baseUri = config('footballdata.baseUri');
         //dd($this->start);
     }
@@ -51,10 +51,10 @@ class FootballController extends Controller {
 
     /**
      * Function returns all available matches for a given date range.
-     * 
+     *
      * @param DateString 'Y-m-d' $start
      * @param DateString 'Y-m-d' $end
-     * 
+     *
      * @return array of matches
      */
     public function findMatchesForDateRange() {
@@ -70,18 +70,18 @@ class FootballController extends Controller {
         return view('back.pages.footballapi.showmatchesfordaterange', ['data' => $api]);
     }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
     /**
      * Function returns a particular competition identified by an id.
-     * 
+     *
      * @param Integer $id
      * @return array
      */
@@ -114,7 +114,7 @@ class FootballController extends Controller {
 
     /**
      * Function returns one unique match identified by a given id.
-     * 
+     *
      * @param int $id
      * @return stdObject fixture
      */
@@ -128,7 +128,7 @@ class FootballController extends Controller {
 
     /**
      * Function returns one unique team identified by a given id.
-     * 
+     *
      * @param int $id
      * @return stdObject team
      */
@@ -142,7 +142,7 @@ class FootballController extends Controller {
 
     /**
      * Function returns all teams matching a given keyword.
-     * 
+     *
      * @param string $keyword
      * @return list of team objects
      */

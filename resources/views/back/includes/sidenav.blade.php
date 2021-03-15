@@ -25,10 +25,6 @@
                     <div class="sb-nav-link-icon"><i class="fa fa-table"></i></div>
                     Weather
                 </a>
-                <a class="nav-link" href="{{ url('/stripe') }}">
-                    <div class="sb-nav-link-icon"><i class="fa fa-table"></i></div>
-                    Stripe
-                </a>
 
                 <div class="sb-sidenav-menu-heading">Testing</div>
 

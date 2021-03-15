@@ -21,7 +21,7 @@ class ContactController extends Controller {
      * @param Request $request
      */
     public function __construct() {
-        $this->middleware('auth');
+        $this->middleware(['auth:web', 'verified']);
     }
 
     /**

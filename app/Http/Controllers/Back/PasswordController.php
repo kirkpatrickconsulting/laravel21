@@ -7,16 +7,16 @@ use Illuminate\Http\Request;
 
 class PasswordController extends Controller
 {
-    
+
       /**
      * TestController constructor.
      */
     public function __construct() {
-        $this->middleware('auth');
+        $this->middleware(['auth:web', 'verified']);
     }
 
     public function showPasswordForm() {
         return view('back.resources.users.password-edit');
-    }  
+    }
 
 }

@@ -6,7 +6,6 @@ use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\Back\PasswordController;
 use App\Http\Controllers\Back\Resource\RoleController;
 use App\Http\Controllers\Back\Resource\ProductController;
-use App\Http\Controllers\Back\StripePaymentController;
 
 use App\Http\Controllers\Back\DashboardController;
 
@@ -38,6 +37,7 @@ Route::get('test', [TestController::class, 'index'])->name('test.index');
 //})->middleware(['verified']);
 
 Route::get('/dashboard', [DashboardController::class, 'showDashboard'])->name('dashboard');
+Route::middleware(['auth:web', 'verified'])->get('/admin', function () {return view('dashboard');})->name('admin');
 //Route::get('/dashboard', 'App\Http\Controllers\Back\DashboardController@showDashboard');
 Route::get('/blankpage', 'App\Http\Controllers\Back\BlankpageController@showBlankpage');
 Route::get('/weather', 'App\Http\Controllers\Back\WeatherController@showWeather');
@@ -47,10 +47,8 @@ Route::get('/football/show-competition-matches', 'App\Http\Controllers\Back\Foot
 Route::get('/football/show-matches-for-date-range', 'App\Http\Controllers\Back\FootballController@findMatchesForDateRange');
 Route::get('/wiki', 'App\Http\Controllers\Back\WikiController@showWiki');
 Route::get('/test/index', 'App\Http\Controllers\Back\TestController@index');
-Route::get('/stripe', 'App\Http\Controllers\Back\StripeController@index');
-Route::get('stripe', [StripePaymentController::class, 'stripe']);
-Route::post('stripe', [StripePaymentController::class, 'stripePost'])->name('stripe.post');
 //Route::get('/user/password', [PasswordController::class, 'showPasswordForm'])->name('user-password.edit');
+
 
 // Resource
 
@@ -89,9 +87,7 @@ Route::post('ajaxRequest', [AjaxController::class, 'ajaxRequestPost'])->name('aj
 //    return view('welcome');
 //});
 
-Route::middleware(['auth:web', 'verified'])->get('/admin', function () {
-    return view('dashboard');
-})->name('admin');
+
 
 Auth::routes();
 

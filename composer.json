@@ -23,7 +23,6 @@
         "nesbot/carbon": "^2.46",
         "rap2hpoutre/laravel-log-viewer": "^1.7",
         "spatie/laravel-permission": "^4.0",
-        "stripe/stripe-php": "^7.75",
         "yajra/laravel-datatables-oracle": "~9.0"
     },
     "require-dev": {

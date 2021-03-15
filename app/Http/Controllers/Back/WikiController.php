@@ -16,7 +16,7 @@ class WikiController extends Controller {
      * WikiController constructor.
      */
     public function __construct() {
-        $this->middleware('auth');
+        $this->middleware(['auth:web', 'verified']);
     }
 
     /**
