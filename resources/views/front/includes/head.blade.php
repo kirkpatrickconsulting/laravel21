@@ -6,6 +6,7 @@
   <title>Modern Business</title>
 
   <!-- Styles -->
+  <link href="{{ asset('css/meyer-reset.css') }}" rel="stylesheet">
   <link href="{{ asset('css/app_front.css') }}" rel="stylesheet">
   <link href="{{ asset('css/user_front.css') }}" rel="stylesheet">
 

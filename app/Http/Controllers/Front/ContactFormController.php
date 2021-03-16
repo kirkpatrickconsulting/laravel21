@@ -10,7 +10,7 @@ use Log;
 
 /**
  * Class ContactController
- * 
+ *
  * @package App\Http\Controllers\Front
  */
 class ContactFormController extends Controller {
@@ -26,6 +26,10 @@ class ContactFormController extends Controller {
         return view('front.pages.contact');
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function postContactForm(Request $request) {
 
         $validatedData = $request->validate([
@@ -54,11 +58,11 @@ class ContactFormController extends Controller {
         //$this->sendMail($view, $validatedData, $options);
 
         //dd($validatedData);
-        
+
         Log::info('Pre DB call ContactController');
-        
+
         ContactForm::create($validatedData);
-        
+
         Log::info('Post DB call ContactController');
 
         return back()->with('success', 'Thanks for contacting us!');

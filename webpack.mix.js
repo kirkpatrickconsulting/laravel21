@@ -18,6 +18,12 @@ mix.js('resources/js/app_front.js', 'public/js')
     .sass('resources/sass/app_back.scss', 'public/css').version()
     .sourceMaps();
 
+
+// Meyer Reset
+mix.styles([
+    'resources/css/meyer-reset.css'
+], 'public/css/meyer-reset.css');
+
 // Front css
 mix.styles([
     'resources/css/modern-business.css'

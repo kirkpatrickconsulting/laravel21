@@ -7,6 +7,7 @@
 <title>Dashboard - SB Admin</title>
 
 <!-- Styles -->
+<link href="{{ asset('css/meyer-reset.css') }}" rel="stylesheet">
 <link href="{{ asset('css/app_back.css') }}" rel="stylesheet">
 <link href="{{ asset('css/user_back.css') }}" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="css/dataTables.bootstrap4.css"/>
